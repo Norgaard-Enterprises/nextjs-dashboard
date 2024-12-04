@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
- 
+
 const FormSchema = z.object({
     id: z.string(),
     customerId: z.string({
@@ -34,6 +34,7 @@ export type State = {
   };
    
   export async function createInvoice(prevState: State, formData: FormData) {
+
 
     const validatedFields = CreateInvoice.safeParse(Object.fromEntries(formData.entries()));
     
